@@ -88,7 +88,7 @@ const Home = () => {
           <div className='mb-8 w-full'><SearchBar setSearch={setSearch} /></div>
           <Filter setGender={setGender} setAvailable={setAvailable} setDomain={setDomain} />
         </div>
-        <div className='flex-1 h-[calc(100vh-200px)] pt-20 flex flex-col justify-around'>
+        <div className='flex-1 h-[calc(100vh-200px)] overflow-y-scroll pt-20 flex flex-col justify-around'>
           <div className='flex flex-wrap justify-center gap-6'>
             {isLoading ? <Loader /> : (showUsers && showUsers.length !== 0) ? showUsers?.map((user) => (
               <UsersCard
