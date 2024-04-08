@@ -60,7 +60,8 @@ const Teams = () => {
       }
       else {
         toast({
-          title: "Unable to process request"
+          title: "Unable to process request",
+          variant: "destructive"
         })
       }
     }

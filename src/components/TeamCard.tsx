@@ -29,7 +29,8 @@ const TeamCard = ({ handleCloseModel, selectedPlayers, isOpen }: { handleCloseMo
                 });
             } else {
                 toast({
-                    title: "An error occurred while Creating team"
+                    title: "An error occurred while Creating team",
+                    variant:"destructive"
                 });
             }
             navigate('/login')

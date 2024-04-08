@@ -19,7 +19,6 @@ const Navbar = () => {
     dispatch(logOut())
     toast({
       title: "Logout Successfully",
-       variant: "destructive"
     })
     navigate('/')
   }

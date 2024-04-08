@@ -7,6 +7,7 @@ import TeamCard from '../components/TeamCard'
 import Filter from '../components/Filter'
 import { AxiosError } from 'axios'
 import { useToast } from '../components/ui/use-toast'
+import Loader from '../components/shared/Loader'
 
 type UsersType = {
   users: Users[],
@@ -17,7 +18,7 @@ type UsersType = {
 
 const Home = () => {
   const [showUsers, setShowUsers] = useState<Users[]>([])
-
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   // pagination states
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [totalPage, setTotalPage] = useState<number>(1);
@@ -36,6 +37,7 @@ const Home = () => {
   useEffect(() => {
     const getAllUsers = async () => {
       try {
+        setIsLoading(true)
         const { data } = await axiosInstance.get(`/allplayers?page=${currentPage}&available=${available}&gender=${gender}&search=${search}&domain=${domain}`);
         const res = data as UsersType
         if (res) {
@@ -50,9 +52,13 @@ const Home = () => {
           });
         } else {
           toast({
-            title: "An error occurred while getting users"
+            title: "An error occurred while getting users",
+            variant: "destructive"
           });
         }
+      }
+      finally {
+        setIsLoading(false)
       }
     }
     getAllUsers()
@@ -84,7 +90,7 @@ const Home = () => {
         </div>
         <div className='flex-1 min-h-screen pt-20 flex flex-col justify-around'>
           <div className='flex flex-wrap justify-center gap-6'>
-            {(showUsers && showUsers.length !== 0) ? showUsers?.map((user) => (
+            {isLoading ? <Loader /> : (showUsers && showUsers.length !== 0) ? showUsers?.map((user) => (
               <UsersCard
                 key={user._id}
                 user={user}

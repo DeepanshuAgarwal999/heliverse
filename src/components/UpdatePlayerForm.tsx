@@ -33,6 +33,7 @@ const UpdatePlayerForm = ({ user }: UpdatePlayerFormProp) => {
     })
     const { toast } = useToast();
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState<boolean>(false)
 
     const handleOnchange = (e: any) => {
         setValue((prev) => {
@@ -41,6 +42,7 @@ const UpdatePlayerForm = ({ user }: UpdatePlayerFormProp) => {
     }
     const handleUpdatePlayer = async () => {
         try {
+            setIsLoading(true)
             if (!values.email || !values.avatar || !values.gender || !values.domain || !values.available || !values.first_name) {
                 toast({
                     title: "Except last name All fields are mandatory"
@@ -73,6 +75,9 @@ const UpdatePlayerForm = ({ user }: UpdatePlayerFormProp) => {
                     title: "An error occurred while registering "
                 });
             }
+        }
+        finally {
+            setIsLoading(false)
         }
     }
 

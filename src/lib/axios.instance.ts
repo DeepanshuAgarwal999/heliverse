@@ -3,7 +3,7 @@ import { store } from "../redux/store/store";
 
 export const axiosInstance = axios.create({
 	baseURL: import.meta.env.VITE_BASE_URL,
-	timeout: 30 * 60 * 1000,
+	timeout: 10 * 60 * 60 * 1000,
 	headers: {
 		Accept: "application/json",
 		"Content-Type": "application/json",
