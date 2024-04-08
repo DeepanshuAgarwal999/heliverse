@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+:root {
+    --background: rgba(255, 255, 255, 1);
+    --foreground: rgba(15, 15, 15, 1);
+    --card: rgba(255, 255, 255, 1);
+    --card-foreground: rgba(15, 15, 15, 1);
+    --popover: rgba(255, 255, 255, 1);
+    --popover-foreground: rgba(15, 15, 15, 1);
+    --primary: rgba(15, 15, 15, 1);
+    --primary-foreground: rgba(255, 255, 255, 1);
+    --secondary: rgba(240, 240, 240, 1);
+    --secondary-foreground: rgba(15, 15, 15, 1);
+    --muted: rgba(240, 240, 240, 1);
+    --muted-foreground: rgba(60, 60, 60, 1);
+    --accent: rgba(240, 240, 240, 1);
+    --accent-foreground: rgba(15, 15, 15, 1);
+    --destructive: rgba(255, 59, 48, 1);
+    --destructive-foreground: rgba(15, 15, 15, 1);
+    --border: rgba(220, 221, 225, 1);
+    --input: rgba(220, 221, 225, 1);
+    --ring: rgba(15, 15, 15, 1);
+    --radius: 0.5rem;
+}
+
+.dark {
+    --background: rgba(15, 15, 15, 1);
+    --foreground: rgba(255, 255, 255, 1);
+    --card: rgba(15, 15, 15, 1);
+    --card-foreground: rgba(255, 255, 255, 1);
+    --popover: rgba(15, 15, 15, 1);
+    --popover-foreground: rgba(255, 255, 255, 1);
+    --primary: rgba(255, 255, 255, 1);
+    --primary-foreground: rgba(15, 15, 15, 1);
+    --secondary: rgba(232, 232, 232, 1);
+    --secondary-foreground: rgba(255, 255, 255, 1);
+    --muted: rgba(232, 232, 232, 1);
+    --muted-foreground: rgba(153, 153, 153, 1);
+    --accent: rgba(232, 232, 232, 1);
+    --accent-foreground: rgba(15, 15, 15, 1);
+    --destructive: rgba(153, 153, 153, 1);
+    --destructive-foreground: rgba(15, 15, 15, 1);
+    --border: rgba(232, 232, 232, 0.3);
+    --input: rgba(232, 232, 232, 1);
+    --ring: rgba(33, 33, 33, 1);
+}
+
+}
+
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+}
