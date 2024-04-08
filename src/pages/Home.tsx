@@ -84,11 +84,11 @@ const Home = () => {
     <>
       <TeamCard handleCloseModel={handleCloseModel} selectedPlayers={selectedPlayers} isOpen={isOpen} />
       <main className='flex flex-col sm:flex-row'>
-        <div className='sm:border-r pt-20 px-4 w-[300px] mx-auto flex flex-col'>
+        <div className='sm:border-r pt-10 px-4 w-[300px] mx-auto flex flex-col'>
           <div className='mb-8 w-full'><SearchBar setSearch={setSearch} /></div>
           <Filter setGender={setGender} setAvailable={setAvailable} setDomain={setDomain} />
         </div>
-        <div className='flex-1 h-screen overflow-y-scroll pt-20 flex flex-col justify-around'>
+        <div className='flex-1 h-[calc(100vh-50px)] overflow-y-scroll no-scrollbar pt-10 flex flex-col justify-around'>
           <div className='flex flex-wrap justify-center gap-6'>
             {isLoading ? <Loader /> : (showUsers && showUsers.length !== 0) ? showUsers?.map((user) => (
               <UsersCard
